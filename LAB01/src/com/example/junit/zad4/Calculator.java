@@ -1,4 +1,4 @@
-package com.example.junit.zad2;
+package com.example.junit.zad4;
 
 public class Calculator {
 

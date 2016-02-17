@@ -1,10 +1,10 @@
-package com.example.junit.zad1;
+package com.example.junit.zad2i3;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.example.junit.zad1.Calculator;
+import com.example.junit.zad2i3.Calculator;
 
 public class CalculatorTest {
 
@@ -33,17 +33,17 @@ public class CalculatorTest {
 	
 	@Test
 	public void greaterCheck(){
-		assertEquals(true, calc.greater(3, 2));
+		assertTrue(calc.greater(3, 2));
 	}
 	
-	@Test 
-	public void divZerocheck(){
-		try{
-			calc.div(0,1);
-			fail("Błąd dzielenia przez zero!");
-		}
-		catch(ArithmeticException e){	
-		}	
+	@Test
+	public void greaterCheck2(){
+		assertFalse(calc.greater(2, 3));
+	}
+	
+	@Test(expected = ArithmeticException.class)
+	public void divZeroCheck(){
+		calc.div(1, 0);
 	}
 	
 }

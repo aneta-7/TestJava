@@ -1,8 +1,10 @@
-package com.example.junit.zad3;
+package com.example.junit.zad5;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import com.example.junit.zad5.LiczbaRzymska;
 
 public class LiczbaRzymskaTest {
 
@@ -18,7 +20,8 @@ public class LiczbaRzymskaTest {
 	}
 	
 	@Test 
-	public void ujemnaCheck(){
+	public void bladCheck(){
 		assertEquals("-1", licz.toString(-1222));
+		assertEquals("-1", licz.toString(40000));
 	}
 }

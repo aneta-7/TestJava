@@ -1,4 +1,4 @@
-package com.example.junit.zad1;
+package com.example.junit.zad2i3;
 
 public class Calculator {
 	
@@ -19,6 +19,8 @@ public class Calculator {
 	}
 	
 	public int div(int n1, int n2){
+		if(n2==0)
+			throw new ArithmeticException();
 		return n1 / n2;
 	}
 	

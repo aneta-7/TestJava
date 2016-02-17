@@ -1,10 +1,10 @@
-package com.example.junit.zad2;
+package com.example.junit.zad4;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.example.junit.zad2.Calculator;
+import com.example.junit.zad4.Calculator;
 
 public class CalculatorTest {
 private Calculator calc = new Calculator();
@@ -42,7 +42,12 @@ private static final double delta = 1e-15;
 	
 	@Test
 	public void greaterCheck(){
-		assertEquals(true, calc.greater(3.0, 2.0));
+		assertTrue(calc.greater(3.0, 2.0));
+	}
+	
+	@Test
+	public void greaterCheck2(){
+		assertFalse(calc.greater(2.0, 3.0));
 	}
 	
 }
