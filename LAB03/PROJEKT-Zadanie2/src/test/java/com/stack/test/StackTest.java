@@ -8,15 +8,15 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.stack.Stack;
+import com.stack.PsikusImpl;
 
 public class StackTest {
 
-	private Stack stack;
+	private PsikusImpl stack;
 	
 	@Before
 	public void setUp(){
-		stack = new Stack();
+		stack = new PsikusImpl();
 	}
 	
 	@After
