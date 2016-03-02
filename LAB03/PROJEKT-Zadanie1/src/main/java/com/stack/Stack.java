@@ -10,6 +10,14 @@ public class Stack {
 		start = new ArrayList<Integer>();
 	}
 
+	
+	public boolean IsEmpty(){
+		if(start.isEmpty())
+			return true;
+		else 
+			return false;
+	}
+	
 	public int MyTop() {
 		if (start.isEmpty()) {
 			throw new NullPointerException();
@@ -29,13 +37,4 @@ public class Stack {
 			start.remove(start.size()-1);
 		} 
 	}
-
-	public boolean IsEmpty(){
-		if(start == null){
-			return true;
-		}else {
-			return false;
-		}
-	}
-
 }
