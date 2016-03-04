@@ -1,6 +1,6 @@
 package com.stack;
 
-public class PsikusImpl implements Psikus{
+public class Kontrakt implements Psikus{
 
 	@Override
 	public Integer CyfroKrad(Integer liczba) {
@@ -24,6 +24,12 @@ public class PsikusImpl implements Psikus{
 	public boolean Titit(Integer liczba_dziel) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public Integer HultajChochla(Integer liczba) throws NieudanyPsikusException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
