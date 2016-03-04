@@ -88,8 +88,11 @@ public class Kontrakt implements Psikus{
 
 	@Override
 	public boolean Titit(Integer liczba_dziel) {
-		// TODO Auto-generated method stub
+		int liczba = 12;
+		if(liczba_dziel == 0)
+			throw new IllegalArgumentException();
+		else if(liczba % liczba_dziel == 0)
+			return true;
 		return false;
 	}
-	
 }
