@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.*;
 
 import com.stack.Kontrakt;
 
-public class TititTest {
+public class TititDobre {
 
 	private Kontrakt kontrakt;
 	
@@ -23,11 +23,6 @@ public class TititTest {
 	@After
 	public void po(){
 		kontrakt = null;
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void zero(){
-		kontrakt.Titit(0);
 	}
 	
 	@Test

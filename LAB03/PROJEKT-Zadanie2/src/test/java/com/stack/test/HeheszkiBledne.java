@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import com.stack.Kontrakt;
 
-public class HeheszkiTest {
+public class HeheszkiBledne {
 
 	private Kontrakt kontrakt;
 
@@ -43,12 +43,6 @@ public class HeheszkiTest {
 	public void liczbaUjemna(){
 		Integer liczba = -3;
 		assertThat(kontrakt.Heheszki(liczba), lessThan(liczba));
-	}
-	
-	@Test
-	public void liczbaDodatnia(){
-		Integer liczba = 3;
-		assertThat(kontrakt.Heheszki(liczba), lessThan(3));
 	}
 	
 	@Test(expected = AssertionError.class)

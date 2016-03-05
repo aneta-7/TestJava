@@ -9,7 +9,7 @@ import static org.hamcrest.Matchers.*;
 
 import com.stack.Kontrakt;
 
-public class NieksztaltekTest {
+public class NieksztaltekDobre {
 
 	private Kontrakt kontrakt;
 	

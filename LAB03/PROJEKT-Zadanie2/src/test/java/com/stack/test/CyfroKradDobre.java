@@ -1,19 +1,20 @@
 package com.stack.test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.either;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
 
 import com.stack.Kontrakt;
 
-public class CyfrokradTest {
+public class CyfroKradDobre {
 
-	private static Kontrakt kontrakt;
+private static Kontrakt kontrakt;
 	
 	@Before
 	public void przed(){
@@ -24,7 +25,7 @@ public class CyfrokradTest {
 	public void po(){
 		kontrakt = null;
 	}
-
+	
 	@Test
 	public void jednaCyfra(){
 		assertNull(kontrakt.CyfroKrad(1));
