@@ -82,8 +82,11 @@ public class Kontrakt implements Psikus{
 
 	@Override
 	public Integer Heheszki(Integer liczba) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		if(liczba<0)
+			throw new IllegalArgumentException();
+		Integer nowaLiczba = generator.nextInt(liczba-1);
+		return nowaLiczba;
 	}
 
 	@Override
