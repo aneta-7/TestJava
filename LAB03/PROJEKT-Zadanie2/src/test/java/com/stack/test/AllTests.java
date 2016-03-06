@@ -8,13 +8,18 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({
 	CyfroKradDobre.class,
 	CyfroKradBledne.class,
+	CyfroKradZParametrem.class,
 	HultajChochlaBledne.class,
 	HultajChochlaDobre.class,
+	HultajChochlaZParametrem.class,
 	NieksztaltekBledne.class,
 	NieksztaltekDobre.class,
+	NiekształtekZParametrem.class,
 	HeheszkiBledne.class,
 	HeheszkiDobre.class,
+	HeheszkiZParametrem.class,
 	TititBledne.class,
-	TititDobre.class})
+	TititDobre.class,
+	TititZParametrem.class})
 
 public class AllTests { }

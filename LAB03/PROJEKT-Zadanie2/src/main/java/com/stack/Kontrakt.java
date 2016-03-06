@@ -91,7 +91,7 @@ public class Kontrakt implements Psikus{
 
 	@Override
 	public boolean Titit(Integer liczba_dziel) {
-		int liczba = 12;
+		int liczba = 30;
 		if(liczba_dziel == 0)
 			throw new IllegalArgumentException();
 		else if(liczba % liczba_dziel == 0)

@@ -27,5 +27,11 @@ public class HultajChochlaBledne {
 	public void jedenElement() throws NieudanyPsikusException{
 		kontrakt.HultajChochla(1);
 	}
+	
+	@Test(expected = NullPointerException.class)
+	public void pusty() throws NieudanyPsikusException{
+		Integer liczba = null;
+		kontrakt.HultajChochla(liczba);
+	}
 
 }

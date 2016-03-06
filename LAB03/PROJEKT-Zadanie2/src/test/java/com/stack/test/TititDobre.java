@@ -27,6 +27,7 @@ public class TititDobre {
 	
 	@Test
 	public void dzielPrzez2(){
+		
 		assertThat(true, equalTo(kontrakt.Titit(2)));
 	}
 	
@@ -37,6 +38,6 @@ public class TititDobre {
 	
 	@Test
 	public void dzielPrzez5(){
-		assertThat(false, equalTo(kontrakt.Titit(5)));
+		assertThat(false, equalTo(kontrakt.Titit(7)));
 	}
 }
