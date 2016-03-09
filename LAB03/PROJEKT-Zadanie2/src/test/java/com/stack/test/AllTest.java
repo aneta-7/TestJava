@@ -22,4 +22,4 @@ import org.junit.runners.Suite.SuiteClasses;
 	TititDobre.class,
 	TititZParametrem.class})
 
-public class AllTests { }
+public class AllTest { }
