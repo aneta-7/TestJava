@@ -42,7 +42,6 @@ public class Messenger {
 			default:
 				result = -1;
 			}
-
 		} catch (MalformedRecipientException e) {
 			result = 2;
 		}
