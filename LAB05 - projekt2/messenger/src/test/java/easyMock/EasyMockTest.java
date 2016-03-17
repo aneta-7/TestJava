@@ -89,4 +89,12 @@ public class EasyMockTest {
 		assertEquals(1, messenger.sendMessage(VALID_SERVER, null));
 		verify(messageMock);
 	}
+	
+	@Test
+	public void connectionTestResturn2Exception_ServerNull() throws MalformedRecipientException {
+		expect(messageMock.send(null, VALID_MESSAGE)).andReturn(SendingStatus.SENDING_ERROR);
+		replay(messageMock);
+		assertEquals(1, messenger.sendMessage(null,  VALID_MESSAGE));
+		verify(messageMock);
+	}
 }
