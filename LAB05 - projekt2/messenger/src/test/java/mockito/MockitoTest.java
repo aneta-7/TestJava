@@ -4,6 +4,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -94,5 +95,11 @@ public class MockitoTest {
 		when(messageMock.checkConnection("")).thenReturn(ConnectionStatus.FAILURE);
 		assertEquals(1, messenger.testConnection(""));
 		verify(messageMock).checkConnection("");
+	}
+	
+	@After
+	public void tearDown(){
+		messageMock = null;
+		messenger = null;
 	}
 }
