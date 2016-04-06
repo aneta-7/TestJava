@@ -1,0 +1,38 @@
+
+(Scenario2.story)
+Scenario: Test MyPop
+Examples:
+Given the nonEmpty stack by <list>
+When MyPop occurs
+Then the top of stack should be <elem>
+
+|list|elem|
+|8,3,76|76|
+
+Example: {list=8,3,76, elem=76}
+Given the nonEmpty stack by 8,3,76
+When MyPop occurs
+Then the top of stack should be 76 (FAILED)
+(java.lang.RuntimeException: Error in MyTop method. It's ok)
+
+
+Scenario: Test MyPush
+Examples:
+Given an element by <elem>
+When an element is added to the stack
+Then the stack should have <elem>
+
+|elem|
+|9|
+
+Example: {elem=9}
+Given an element by 9
+When an element is added to the stack
+Then the stack should have 9
+
+
+Scenario: Test MyTop empty
+When the stack is empty
+Then MyTop should throw an exception
+
+
