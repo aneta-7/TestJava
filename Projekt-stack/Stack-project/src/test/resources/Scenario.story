@@ -49,14 +49,14 @@ When the stack is empty
 Then MyTop should throw an exception
 
 Scenario: Test MyTop 
-When the nonEmpty stack by <list>
-Then MyTop should be <top>
+When Add new element <elem>
+Then MyTop should be <elem>
 
 Examples:
-|list|top|
-|43,432,4|4|
-|42,43|43|
-|2|2|
+|elem|
+|434|
+|42|
+|2|
 
 
 

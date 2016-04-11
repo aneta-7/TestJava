@@ -105,12 +105,6 @@ public class MySteps extends Steps {
 		}
 	}
 
-	@Then("MyTop should be $top")
-	public void thenMyTopShouldBetop(@Named("top") int top) {
-		if (myStack.MyTop() != top)
-			throw new RuntimeException("Error in MyTop method. It's ok");
-	}
-
 	@Then("MyPop should throw an exception")
 	public void thenMyPopShouldThrowAnException() {
 		try {
@@ -118,5 +112,21 @@ public class MySteps extends Steps {
 		} catch (NullPointerException e) {
 		}
 	}
+	
+	
+	@When("Add new element $elem")
+	public void whenAddNewElementelem(@Named("elem") int elem){
+		element = elem;
+	}
+	
+	
+	@Then("MyTop should be $elem")
+	public void thenMyTopShouldBeelem(@Named("elem") int elem){
+		myStack.MyPush(elem);
+		if (myStack.MyTop() != elem)
+			throw new RuntimeException("Error in MyTop method. It's ok");
+	}
+	
+	
 
 }
