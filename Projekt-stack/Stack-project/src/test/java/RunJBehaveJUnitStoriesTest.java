@@ -36,7 +36,7 @@ public class RunJBehaveJUnitStoriesTest  extends JUnitStories {
 	
 		@Override
 	protected List<String> storyPaths() {
-		return Arrays.asList("ConnectionBAD.story","ConnectionOK.story", "SendMessageBAD.story", "SendMessageOK.story", "IncorrectDate.story");
+		return Arrays.asList("Scenario.story");
 	}
 
 }

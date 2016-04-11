@@ -1,10 +1,7 @@
 Scenario: Test IsEmpty true if empty
-Given the empty stack <list>
+Given the empty stack
 Then IsEmpty should be true
 
-Examples:
-|list|
-||
 
 Scenario: Test IsEmpty false if not empty
 Given the stack by <list>
@@ -15,6 +12,13 @@ Examples:
 |1,3|
 |7,8|
 |3|
+
+
+Scenario: Test MyPop empty
+Given the empty stack 
+Then MyPop should throw an exception
+
+
 
 Scenario: Test MyPop
 Given the nonEmpty stack by <list>
@@ -27,7 +31,6 @@ Examples:
 |1,1,1|1|
 |3,2,1|2|
 |4,3,5,7,2|7|
-|4||
 |2,5|2|
 
 Scenario: Test MyPush
