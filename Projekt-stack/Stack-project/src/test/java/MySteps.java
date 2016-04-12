@@ -14,7 +14,6 @@ public class MySteps extends Steps {
 
 	int element;
 
-	// empty true
 	@Given("the empty stack")
 	public void givenTheEmptyStack() {
 		myStack = new Stack();
@@ -30,7 +29,6 @@ public class MySteps extends Steps {
 		}
 	}
 
-	// empty false
 	@Given("the stack by $list")
 	public void givenTheStackBylist(@Named("list") List<Integer> list) {
 		myStack = new Stack(list);
@@ -61,7 +59,6 @@ public class MySteps extends Steps {
 		}
 	}
 
-	// push
 	@Given("an element by $elem")
 	public void givenAnElementByelem(@Named("elem") int elem) {
 		element = elem;
@@ -79,12 +76,6 @@ public class MySteps extends Steps {
 		}
 	}
 
-	// top empty
-	@Given("a new element by $elem")
-	public void givenANewElementByelem(@Named("elem") int elem) {
-		element = elem;
-	}
-
 	@When("the stack is empty")
 	public void whenTheStackIsEmpty() {
 	}
@@ -98,12 +89,7 @@ public class MySteps extends Steps {
 		}
 	}
 
-	@When("the nonEmpty stack by $list")
-	public void whenTheNonEmptyStackBylist(@Named("list") int list) {
-		if (myStack.MyTop() != list) {
-			throw new RuntimeException("Error in MyTop method. It's ok");
-		}
-	}
+
 
 	@Then("MyPop should throw an exception")
 	public void thenMyPopShouldThrowAnException() {
