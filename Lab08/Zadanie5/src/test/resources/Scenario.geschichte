@@ -1,0 +1,34 @@
+Szenario: IsEmpty true
+Gegeben the stack is empty
+Dann IsEmpty schould be true
+
+Szenario: Test IsEmpty false if not empty
+Gegeben the stack by <list>
+Dann IsEmpty should be false
+
+Beispiele:
+|list|
+|1,3|
+|7,8|
+
+Szenario: Test MyPop
+Gegeben the nonEmpty stack by <list>
+Wenn MyPop occurs
+Dann the top of stack should be <elem>
+
+Beispiele:
+|list|elem|
+|8,3,76|3|
+
+Szenario: Test MyPush
+Gegeben an element by <elem>
+Wenn an element is added to the stack
+Dann the stack should have <elem>
+
+Beispiele:
+|elem|
+|9|
+	 
+Szenario:  Test MyTop empty
+Gegeben the stack is empty
+Dann MyTop should throw an exception
