@@ -94,7 +94,7 @@ public class SomeSiteTest {
 		driver.get("https://anetashop2.herokuapp.com/");
 		driver.findElement(By.linkText("Ads")).click();
 		
-		driver.findElement(By.xpath("//a[@href='/ads/2']")).click();
+		driver.findElement(By.xpath("//a[@href='/ads/106']")).click();
 		
 		File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		assertNotNull(screenshot);
