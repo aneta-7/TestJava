@@ -18,11 +18,12 @@ public class FormularzTest {
 	private static WebDriver driver;
 	WebElement element;
 
-	// link do formularza http://goo.gl/forms/ji37XaAL1s
 
 	@BeforeClass
 	public static void driverSetup() {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\AnetaS\\Downloads\\chromedriver.exe");
+	//	System.setProperty("webdriver.chrome.driver", "C:\\Users\\AnetaS\\Downloads\\chromedriver.exe");
+		
+		
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
@@ -73,8 +74,72 @@ public class FormularzTest {
 		formularz.Wyloguj();
 	}
 	
-	
+	@Test
+	public void BledneLogowanie(){
+		Formularz formularz = new Formularz(driver);
+		formularz.BlednieZaloguj();
+		
+		String actual = driver.findElement(By.xpath("/html/body/div/div[1]")).getText();
+		
+		assertEquals("Invalid email/password combination", actual);
 
+	}
+	
+	@Test
+	public void BledneDodawanie(){
+		Formularz formularz = new Formularz(driver);
+		formularz.Zaloguj();
+		formularz.BlednieDodajProdukt();
+		
+		String actual = driver.findElement(By.xpath("id('error_explanation')/h2")).getText();
+		
+		assertEquals("10 errors prohibited this ad from being saved:", actual);
+		
+		formularz.Wyloguj();
+	}
+	
+	@Test
+	public void BledneEdytowanie(){
+		Formularz formularz = new Formularz(driver);
+		formularz.Zaloguj();
+		formularz.BlednieEdytujOgloszenie();
+		
+		String actual = driver.findElement(By.xpath("id('error_explanation')/h2")).getText();
+		
+		assertEquals("4 errors prohibited this ad from being saved:", actual);
+		formularz.Wyloguj();
+	}
+	
+	@Test
+	public void UzytkownikIstnieje(){
+		Formularz formularz = new Formularz(driver);
+		formularz.NowyUzytkownik();
+		
+		String actual = driver.findElement(By.xpath("/html/body/div/div[1]")).getText();
+		
+		assertEquals("Welcome to Ads App!", actual);
+	}
+	
+	@Test
+	public void BlednyNowyUzytkownik(){
+		Formularz formularz= new Formularz(driver);
+		formularz.BlednyNowyUzytkownik();
+		
+		String actual = driver.findElement(By.xpath("id('error_explanation')/ul/li")).getText();
+		
+		assertEquals("Password is too short (minimum is 6 characters)", actual);
+	}
+
+	@Test
+	public void ProbaDodaniaBezZalogowania(){
+		Formularz formularz = new Formularz(driver);
+		formularz.ProbaDodania();
+		
+		String actual = driver.findElement(By.xpath("/html/body/div/div[1]")).getText();
+		
+		assertEquals("This page is only avaliable to logged-in users", actual);
+	}
+	
 	@AfterClass
 	public static void cleanp() {
 		driver.quit();

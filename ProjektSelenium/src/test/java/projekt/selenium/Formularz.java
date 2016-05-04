@@ -64,6 +64,24 @@ public class Formularz {
 	@FindBy(how = How.XPATH, using ="//div[7]/input")
 	private WebElement updateAd;
 	
+	@FindBy(how = How.XPATH, using = "/html/body/div/div/a")
+	private WebElement signUp;
+	
+	@FindBy(id = "user_name")
+	private WebElement userName;
+	
+	@FindBy(id = "user_email")
+	private WebElement userEmail;
+	
+	@FindBy(id = "user_password")
+	private WebElement userPassword;
+	
+	@FindBy(id = "user_password_confirmation")
+	private WebElement passwordConfirmation;
+	
+	@FindBy(how = How.XPATH, using = "id('new_user')/input[7]")
+	private WebElement createAccount;
+	
 	public Formularz(WebDriver driver) {
 		this.driver = driver;
 		driver.get("https://anetashop2.herokuapp.com");
@@ -74,6 +92,13 @@ public class Formularz {
 		log.click();
 		login.sendKeys("aneta.stypa7@wp.pl");
 		password.sendKeys("123456");
+		clickLogin.click();
+	}
+	
+	public void BlednieZaloguj() {
+		log.click();
+		login.sendKeys("aneta.stypa7@wp.pl");
+		password.sendKeys("12");
 		clickLogin.click();
 	}
 	
@@ -100,6 +125,13 @@ public class Formularz {
 		createAd.click();
 	}
 	
+	public void BlednieDodajProdukt(){
+		ads.click();
+		newAd.click();
+			
+		createAd.click();
+	}
+	
 	public void EdytujOgloszenie(){
 		ads.click();
 		
@@ -110,5 +142,41 @@ public class Formularz {
 		adDescription.sendKeys("edycja");
 		
 		updateAd.click();
+	}
+	
+	public void BlednieEdytujOgloszenie(){
+		ads.click();
+		
+		editAd.click();
+		adName.clear();
+		adDescription.clear();
+		
+		updateAd.click();
+	}
+
+	public void NowyUzytkownik(){
+		signUp.click();
+		
+		userName.sendKeys("Aneta");
+		userEmail.sendKeys("aneta.stypa7@wp.pl");
+		userPassword.sendKeys("123456");
+		passwordConfirmation.sendKeys("123456");
+		
+		createAccount.click();
+	}
+	
+	public void BlednyNowyUzytkownik(){
+		signUp.click();
+		
+		userName.sendKeys("Aneta");
+		userEmail.sendKeys("aneta.stypa7@wp.pl");
+		userPassword.sendKeys("123");
+		passwordConfirmation.sendKeys("123");
+		
+		createAccount.click();
+	}
+	
+	public void ProbaDodania(){
+		newAd.click();
 	}
 }
