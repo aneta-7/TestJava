@@ -82,6 +82,12 @@ public class Formularz {
 	@FindBy(how = How.XPATH, using = "id('new_user')/input[7]")
 	private WebElement createAccount;
 	
+	@FindBy(how = How.XPATH, using = "/html/body/div/table/tbody/tr[5]/td[7]/a")
+	private WebElement destroy;
+	
+	@FindBy(how = How.XPATH, using ="/html/body/div/div[1]")
+	public WebElement actualBadLogin;
+	
 	public Formularz(WebDriver driver) {
 		this.driver = driver;
 		driver.get("https://anetashop2.herokuapp.com");
@@ -177,6 +183,12 @@ public class Formularz {
 	}
 	
 	public void ProbaDodania(){
+		ads.click();
 		newAd.click();
+	}
+	
+	public void UsunOgloszenie(){
+		ads.click();
+		destroy.click();
 	}
 }

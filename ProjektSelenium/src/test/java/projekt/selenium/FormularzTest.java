@@ -7,11 +7,14 @@ import java.util.concurrent.TimeUnit;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class FormularzTest {
 
@@ -21,10 +24,9 @@ public class FormularzTest {
 
 	@BeforeClass
 	public static void driverSetup() {
-	//	System.setProperty("webdriver.chrome.driver", "C:\\Users\\AnetaS\\Downloads\\chromedriver.exe");
-		
-		
-		driver = new FirefoxDriver();
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\AnetaS\\Downloads\\chromedriver.exe");
+		driver = new ChromeDriver();
+	//	driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
@@ -41,9 +43,9 @@ public class FormularzTest {
 		formularz.Zaloguj();
 		formularz.Uzytkownicy();
 
-		String actual = driver.getTitle();
+		String actual = driver.findElement(By.xpath("/html/body/div/h1")).getText();
 
-		assertEquals("All users | Ads app", actual);
+		assertEquals("All users", actual);
 		formularz.Wyloguj();
 	}
 
@@ -75,11 +77,30 @@ public class FormularzTest {
 	}
 	
 	@Test
+	public void UsuwanieOgloszenia(){
+		Formularz formularz = new Formularz(driver);
+		formularz.Zaloguj();
+		formularz.UsunOgloszenie();
+		
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+		alert.accept();
+		
+		String actual = driver.findElement(By.xpath("/html/body/div/div[1]")).getText();
+		assertEquals("Ad was successfully destroyed.", actual);
+		
+		formularz.Wyloguj();
+	}
+	
+	@Test
 	public void BledneLogowanie(){
 		Formularz formularz = new Formularz(driver);
 		formularz.BlednieZaloguj();
 		
-		String actual = driver.findElement(By.xpath("/html/body/div/div[1]")).getText();
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		wait.until(ExpectedConditions.visibilityOf(formularz.actualBadLogin));
+		
+		String actual = formularz.actualBadLogin.getText();
 		
 		assertEquals("Invalid email/password combination", actual);
 
@@ -128,16 +149,6 @@ public class FormularzTest {
 		String actual = driver.findElement(By.xpath("id('error_explanation')/ul/li")).getText();
 		
 		assertEquals("Password is too short (minimum is 6 characters)", actual);
-	}
-
-	@Test
-	public void ProbaDodaniaBezZalogowania(){
-		Formularz formularz = new Formularz(driver);
-		formularz.ProbaDodania();
-		
-		String actual = driver.findElement(By.xpath("/html/body/div/div[1]")).getText();
-		
-		assertEquals("This page is only avaliable to logged-in users", actual);
 	}
 	
 	@AfterClass
