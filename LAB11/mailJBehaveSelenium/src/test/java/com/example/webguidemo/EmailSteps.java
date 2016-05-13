@@ -81,6 +81,8 @@ public class EmailSteps {
 		pages.onet().findElement(By.id("f_login")).sendKeys("testowanie2016@onet.pl");
 	}
 
+
+	
 	@Given("a login user in onet")
 	public void givenALoginUserInOnet() {
 		pages.onet().open();
@@ -210,6 +212,12 @@ public class EmailSteps {
 	public void whenGoToSPAM() {
 		pages.onet().findElement(By.xpath("id('liFolder_349804')/a")).click();
 
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
 		pages.onet().findElement(By.xpath("id('liFolder_349804')/a/span")).click();
 		pages.onet().findElement(By.xpath("id('popupConfirmButtonSave')/span")).click();
 
@@ -217,9 +225,80 @@ public class EmailSteps {
 
 	@Then("SPAM is empty")
 	public void thenSPAMIsEmpty() {
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		String empty = pages.onet().findElement(By.xpath("id('mailList-list-items')/div[4]")).getText();
 
 		assertEquals("Ten folder jest pusty", empty);
 	}
 
+	
+	
+	@When("send a email to onet")
+	public void whenSendAEmailToOnet(){
+		pages.wp().findElement(By.xpath("id('ng-app')/body/section[5]/section[1]/div/section/ul/li[1]/a")).click();
+
+		pages.wp().findElement(By.xpath("id('ng-app')/body/div[1]/div/div[2]/div/div[1]/div[4]/div[3]/div/textarea"))
+				.clear();
+		pages.wp().findElement(By.xpath("id('ng-app')/body/div[1]/div/div[2]/div/div[1]/div[4]/div[3]/div/textarea"))
+				.sendKeys("testowanie2016@onet.pl");
+
+		pages.wp().findElement(By.xpath("id('ng-app')/body/div[1]/div/div[2]/div/div[1]/div[5]/input")).clear();
+		pages.wp().findElement(By.xpath("id('ng-app')/body/div[1]/div/div[2]/div/div[1]/div[5]/input"))
+				.sendKeys("testowa wiadomosc");
+		pages.wp().findElement(By.xpath("id('ng-app')/body/div[1]/div/div[2]/div/div[3]/button[1]")).click();
+
+	}
+	@Given("a login interiaUser")
+	public void givenALoginInteriaUser(){
+		pages.wp().open();
+		pages.wp().findElement(By.id("iLogin")).sendKeys("testowanie2016@interia.pl");
+		pages.wp().findElement(By.id("iPassword")).sendKeys("2016Testowanie");
+		pages.wp().findElement(By.xpath("id('loginAccountForm')/div/button")).click();
+		
+		pages.wp().findElement(By.xpath("id('header')/div[2]/div/div/div/a[1]/span[1]")).click();
+		pages.wp().findElement(By.xpath("id('header_login')/ul/li[2]/a")).click();
+		
+	}
+	@Then("answer interia")
+	public void thenAnswerInteria(){
+		pages.wp().open();
+		pages.wp().findElement(By.id("iLogin")).sendKeys("testowanie2016@interia.pl");
+		pages.wp().findElement(By.id("iPassword")).sendKeys("2016Testowanie");
+		pages.wp().findElement(By.xpath("id('loginAccountForm')/div/button")).click();
+		
+		pages.wp().findElement(By.xpath("id('header')/div[2]/div/div/div/a[1]/span[1]")).click();
+		pages.wp().findElement(By.xpath("id('header_login')/ul/li[2]/a")).click();
+		
+		 pages.wp().findElement(By.xpath("id('ng-app')/body/section[5]/section[1]/div/section/ul/li[2]/a")).click();
+
+		 
+	}
+	@When("onetUser get a emial")
+	public void whenOnetUserGetAEmial(){
+		pages.onet().open();
+		pages.onet().findElement(By.id("f_login")).clear();
+		pages.onet().findElement(By.id("f_login")).sendKeys("testowanie2016@onet.pl");
+		pages.onet().findElement(By.id("f_password")).clear();
+		pages.onet().findElement(By.id("f_password")).sendKeys("2016Testowanie");
+		pages.onet().findElement(By.xpath("id('loginForm')/div[2]/ul[1]/li[3]/input[2]")).click();
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		
+		pages.onet().findElement(By.xpath("id('liFolder_349804')/a")).click();
+		pages.onet().findElement(By.xpath("//ul/li[4]/div/div/div")).click();
+		pages.onet().findElement(By.id("readmail-actions-top-reply")).click();
+		pages.onet().findElement(By.id("newmail-actions-top-send")).click();
+
+	}
+	
+	
 }

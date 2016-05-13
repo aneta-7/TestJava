@@ -32,3 +32,10 @@ Scenario: Delete SPAM in onet
 Given a login userOnet
 When go to SPAM
 Then SPAM is empty
+
+
+Scenario: Response
+Given a login interiaUser
+When send a email to onet
+When onetUser get a emial
+Then answer interia
