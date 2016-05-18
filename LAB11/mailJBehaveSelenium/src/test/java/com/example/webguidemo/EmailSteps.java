@@ -57,13 +57,13 @@ public class EmailSteps {
 
 	@When("send passwordOnet")
 	public void whenSendPasswordOnet() {
-		pages.onet().findElement(By.id("f_password")).sendKeys("2016Testowanie");
+		pages.onet().findElement(By.id("f_password")).sendKeys("*******");
 	}
 
 	@When("send passwordWp")
 	public void whenSendPasswordWp() {
 		pages.wp().findElement(By.id("iPassword")).clear();
-		pages.wp().findElement(By.id("iPassword")).sendKeys("2016Testowanie");
+		pages.wp().findElement(By.id("iPassword")).sendKeys("******");
 	}
 
 	@Given("a onet login page")
@@ -89,7 +89,7 @@ public class EmailSteps {
 		pages.onet().findElement(By.id("f_login")).clear();
 		pages.onet().findElement(By.id("f_login")).sendKeys("testowanie2016@onet.pl");
 		pages.onet().findElement(By.id("f_password")).clear();
-		pages.onet().findElement(By.id("f_password")).sendKeys("2016Testowanie");
+		pages.onet().findElement(By.id("f_password")).sendKeys("*******");
 		pages.onet().findElement(By.xpath("id('loginForm')/div[2]/ul[1]/li[3]/input[2]")).click();
 	}
 
@@ -97,7 +97,7 @@ public class EmailSteps {
 	public void thenUserInteriaGetAMessage() {
 		pages.wp().open();
 		pages.wp().findElement(By.id("iLogin")).sendKeys("testowanie2016@interia.pl");
-		pages.wp().findElement(By.id("iPassword")).sendKeys("2016Testowanie");
+		pages.wp().findElement(By.id("iPassword")).sendKeys("*******");
 		pages.wp().findElement(By.xpath("id('loginAccountForm')/div/button")).click();
 
 		pages.wp().findElement(By.xpath("id('header')/div[2]/div/div/div/a[1]/span[1]")).click();
@@ -160,7 +160,7 @@ public class EmailSteps {
 		pages.onet().findElement(By.id("f_login")).clear();
 		pages.onet().findElement(By.id("f_login")).sendKeys("testowanie2016@onet.pl");
 		pages.onet().findElement(By.id("f_password")).clear();
-		pages.onet().findElement(By.id("f_password")).sendKeys("2016Testowanie");
+		pages.onet().findElement(By.id("f_password")).sendKeys("**********");
 		pages.onet().findElement(By.xpath("id('loginForm')/div[2]/ul[1]/li[3]/input[2]")).click();
 
 		pages.onet().findElement(By.xpath("id('liFolder_349804')/a")).click();
@@ -179,7 +179,7 @@ public class EmailSteps {
 	public void givenALoginUserInInteria() {
 		pages.wp().open();
 		pages.wp().findElement(By.id("iLogin")).sendKeys("testowanie2016@interia.pl");
-		pages.wp().findElement(By.id("iPassword")).sendKeys("2016Testowanie");
+		pages.wp().findElement(By.id("iPassword")).sendKeys("**********");
 		pages.wp().findElement(By.xpath("id('loginAccountForm')/div/button")).click();
 	}
 
@@ -204,7 +204,7 @@ public class EmailSteps {
 		pages.onet().findElement(By.id("f_login")).clear();
 		pages.onet().findElement(By.id("f_login")).sendKeys("testowanie2016@onet.pl");
 		pages.onet().findElement(By.id("f_password")).clear();
-		pages.onet().findElement(By.id("f_password")).sendKeys("2016Testowanie");
+		pages.onet().findElement(By.id("f_password")).sendKeys("********");
 		pages.onet().findElement(By.xpath("id('loginForm')/div[2]/ul[1]/li[3]/input[2]")).click();
 	}
 
@@ -256,7 +256,7 @@ public class EmailSteps {
 	public void givenALoginInteriaUser(){
 		pages.wp().open();
 		pages.wp().findElement(By.id("iLogin")).sendKeys("testowanie2016@interia.pl");
-		pages.wp().findElement(By.id("iPassword")).sendKeys("2016Testowanie");
+		pages.wp().findElement(By.id("iPassword")).sendKeys("*******");
 		pages.wp().findElement(By.xpath("id('loginAccountForm')/div/button")).click();
 		
 		pages.wp().findElement(By.xpath("id('header')/div[2]/div/div/div/a[1]/span[1]")).click();
@@ -267,7 +267,7 @@ public class EmailSteps {
 	public void thenAnswerInteria(){
 		pages.wp().open();
 		pages.wp().findElement(By.id("iLogin")).sendKeys("testowanie2016@interia.pl");
-		pages.wp().findElement(By.id("iPassword")).sendKeys("2016Testowanie");
+		pages.wp().findElement(By.id("iPassword")).sendKeys("*********");
 		pages.wp().findElement(By.xpath("id('loginAccountForm')/div/button")).click();
 		
 		pages.wp().findElement(By.xpath("id('header')/div[2]/div/div/div/a[1]/span[1]")).click();
@@ -283,7 +283,7 @@ public class EmailSteps {
 		pages.onet().findElement(By.id("f_login")).clear();
 		pages.onet().findElement(By.id("f_login")).sendKeys("testowanie2016@onet.pl");
 		pages.onet().findElement(By.id("f_password")).clear();
-		pages.onet().findElement(By.id("f_password")).sendKeys("2016Testowanie");
+		pages.onet().findElement(By.id("f_password")).sendKeys("*********");
 		pages.onet().findElement(By.xpath("id('loginForm')/div[2]/ul[1]/li[3]/input[2]")).click();
 		
 		try {
