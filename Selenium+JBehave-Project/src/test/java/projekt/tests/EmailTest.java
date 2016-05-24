@@ -27,7 +27,6 @@ import org.jbehave.web.selenium.WebDriverScreenshotOnFailure;
 import org.jbehave.web.selenium.WebDriverSteps;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-
 public class EmailTest extends JUnitStories {
 	
 	private WebDriverProvider driverProvider = new TypeWebDriverProvider(FirefoxDriver.class);
